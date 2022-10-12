@@ -11,7 +11,7 @@ function UserResults() {
 
   
 
-  if (!loading) {
+  if (!loading && users.length!==0) {
     return (
       <div className="grid grid-cols-1 gap-8 xl:grid-col-4 lg:grid-cols-3 md:grid-cols-2">
         {users.map((user) => {
@@ -19,6 +19,9 @@ function UserResults() {
         })}
       </div>
     );
+  } else if(!loading && users.length===0)
+  {
+    return <p className="pp">Search users.....</p>
   } else{
     return (
         <Spinner />
